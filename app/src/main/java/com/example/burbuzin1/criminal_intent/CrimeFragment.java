@@ -13,10 +13,15 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import java.text.DateFormat;
+import java.util.Locale;
+
 /**
  * Created by burbuzin1 on 15.06.2015.
  */
 public class CrimeFragment extends Fragment{
+    private DateFormat mDateFormat, mTimeFormat;
+
     private Crime mCrime;
     private EditText mTitleField;
     private Button mDateButton;
@@ -32,8 +37,13 @@ public class CrimeFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_crime, parent, false);
 
+        mDateFormat = android.text.format.DateFormat.getLongDateFormat(getActivity());
+        mTimeFormat = android.text.format.DateFormat.getTimeFormat(getActivity());
+        String date = (mDateFormat.format(mCrime.getDate()));
+        String time = (mTimeFormat.format(mCrime.getDate()));
+
         mDateButton = (Button) v.findViewById(R.id.crime_date);
-        mDateButton.setText(mCrime.getDate().toString());
+        mDateButton.setText(date + time);
         mDateButton.setEnabled(false);
 
         mSolvedCheckBox = (CheckBox) v.findViewById(R.id.crime_solved);

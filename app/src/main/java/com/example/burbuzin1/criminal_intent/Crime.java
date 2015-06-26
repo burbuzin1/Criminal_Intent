@@ -1,6 +1,8 @@
 package com.example.burbuzin1.criminal_intent;
 
+
 import java.util.Date;
+import java.util.TimeZone;
 import java.util.UUID;
 
 public class Crime {
@@ -10,18 +12,22 @@ public class Crime {
     private UUID mId;
     private String mTitle;
 
+
+
     public Crime() {
         mId = UUID.randomUUID();
         mDate = new Date();
     }
 
-    public Date getDate() {
+    public Date getDate(){
         return mDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Date date)  {
         mDate = date;
     }
+
+
 
     public boolean isSolved() {
         return mSolved;
