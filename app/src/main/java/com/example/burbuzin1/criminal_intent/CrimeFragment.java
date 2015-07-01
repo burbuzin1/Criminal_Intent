@@ -39,9 +39,6 @@ public class CrimeFragment extends Fragment{
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeID);
     }
 
-    /*
-    присоединение аргументов к фрагменту
-             */
     public static CrimeFragment newInstance(UUID crimeID) {
         Bundle args = new Bundle();
         args.putSerializable(EXTRA_CRIME_ID, crimeID);
